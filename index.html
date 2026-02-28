@@ -1,0 +1,452 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>The Network Initiative - INTERNAL DOCUMENT</title>
+    <meta charset="utf-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            background: #c0c0c0;
+            font-family: "Times New Roman", serif;
+            font-size: 14px
+        }
+
+        body {
+            display: flex;
+            flex-direction: column
+        }
+
+        .titlebar {
+            background: #000080;
+            color: #fff;
+            font-weight: bold;
+            padding: 4px 8px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .titlebar-btns span {
+            display: inline-block;
+            width: 16px;
+            height: 14px;
+            background: #c0c0c0;
+            border: 2px outset #fff;
+            text-align: center;
+            font-size: 10px;
+            line-height: 10px;
+            cursor: pointer;
+            margin-left: 2px
+        }
+
+        .menubar {
+            background: #c0c0c0;
+            border-bottom: 1px solid #808080;
+            padding: 2px 6px;
+            font-size: 13px
+        }
+
+        .menubar span {
+            padding: 2px 8px;
+            cursor: default
+        }
+
+        .menubar span:hover {
+            background: #000080;
+            color: #fff
+        }
+
+        .toolbar {
+            background: #c0c0c0;
+            border-bottom: 2px groove #fff;
+            padding: 3px 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px
+        }
+
+        .toolbar-sep {
+            width: 2px;
+            height: 20px;
+            border-left: 1px solid #808080;
+            border-right: 1px solid #fff
+        }
+
+        .main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            background: #c0c0c0
+        }
+
+        .alert-box {
+            background: #ff0;
+            border: 2px outset #808080;
+            padding: 4px 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            color: #000
+        }
+
+        .alert-box .blink {
+            animation: blink1 1s infinite
+        }
+
+        @keyframes blink1 {
+
+            0%,
+            49% {
+                color: #f00
+            }
+
+            50%,
+            100% {
+                color: #000
+            }
+        }
+
+        .panel {
+            border: 2px inset #808080;
+            background: #fff;
+            padding: 0;
+            margin-bottom: 10px
+        }
+
+        .panel-title {
+            background: #000080;
+            color: #fff;
+            font-weight: bold;
+            padding: 3px 8px;
+            font-size: 13px
+        }
+
+        .panel-body {
+            padding: 10px
+        }
+
+        .panel-body p {
+            margin-bottom: 8px;
+            line-height: 1.7
+        }
+
+        table.info {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 6px 0
+        }
+
+        table.info td {
+            border: 1px solid #808080;
+            padding: 4px 8px;
+            font-size: 13px
+        }
+
+        table.info td.label {
+            background: #c0c0c0;
+            font-weight: bold;
+            width: 180px
+        }
+
+        table.info td.value {
+            background: #fff
+        }
+
+        .redacted {
+            background: #000;
+            color: #000;
+            padding: 0 4px;
+            cursor: default;
+            user-select: none;
+            font-size: 13px
+        }
+
+        .download-panel {
+            text-align: center;
+            padding: 15px
+        }
+
+        .download-btn {
+            display: inline-block;
+            font-family: "Times New Roman", serif;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px outset #808080;
+            background: #c0c0c0;
+            padding: 8px 30px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #000
+        }
+
+        .download-btn:active {
+            border-style: inset
+        }
+
+        .download-btn:hover {
+            background: #d4d0c8
+        }
+
+        .statusbar {
+            background: #c0c0c0;
+            border-top: 2px groove #fff;
+            padding: 2px 8px;
+            font-size: 11px;
+            color: #333;
+            display: flex;
+            gap: 10px
+        }
+
+        .statusbar div {
+            border: 1px inset #808080;
+            padding: 1px 8px;
+            flex: 1
+        }
+
+        .statusbar div:first-child {
+            flex: 3
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #808080;
+            border-bottom: 1px solid #fff;
+            margin: 8px 0
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TITLE BAR -->
+    <div class="titlebar">
+        <span>&#9632; The Network Initiative - Internal Terminal [Node 01]</span>
+        <div class="titlebar-btns">
+            <span>_</span>
+            <span>&#9633;</span>
+            <span>X</span>
+        </div>
+    </div>
+
+    <!-- MENU BAR -->
+    <div class="menubar">
+        <span><u>F</u>ile</span>
+        <span><u>V</u>iew</span>
+        <span><u>S</u>ecurity</span>
+        <span><u>D</u>irectives</span>
+        <span><u>H</u>elp</span>
+    </div>
+
+    <!-- TOOLBAR -->
+    <div class="toolbar">
+        <span>&#128274; Encrypted Channel</span>
+        <div class="toolbar-sep"></div>
+        <span>&#128196; Document: TNI-0001</span>
+        <div class="toolbar-sep"></div>
+        <span>&#128100; Operative: Louie</span>
+        <div class="toolbar-sep"></div>
+        <span>Date: 14/09/1981</span>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <!-- SECURITY ALERT -->
+        <div class="alert-box">
+            <span class="blink">&#9888; WARNING:</span> CLASSIFIED MATERIAL - THIS TERMINAL IS MONITORED - UNAUTHORIZED
+            ACCESS IS A FEDERAL OFFENSE
+        </div>
+
+        <!-- WELCOME -->
+        <div class="panel">
+            <div class="panel-title">&#9632; Welcome, Louie</div>
+            <div class="panel-body">
+                <font size="4"><b>Congratulations, Operative.</b></font>
+                <br><br>
+                <p>After a thorough evaluation of your skills, background, and psychological profile,
+                    you have been <b>selected</b> to join <b>The Network Initiative</b>.</p>
+                <p>You are now an official member of this organization. Everything you see, read, and do
+                    from this point forward is <b>classified</b>. You will not speak of this to anyone outside
+                    the network. You will not attempt to identify other members. You will follow
+                    every directive issued to you without hesitation.</p>
+                <p><i>Welcome aboard. Your service begins now.</i></p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- WHO WE ARE -->
+        <div class="panel">
+            <div class="panel-title">&#9632; Who We Are</div>
+            <div class="panel-body">
+                <p><b>The Network Initiative</b> is a covert research organization. We do not exist
+                    in any government record. We are not affiliated with any nation, military, or intelligence agency.
+                    We operate independently, and our work is funded through channels that
+                    <span class="redacted">XXXXXXXXX</span>.
+                </p>
+                <p>Our mission is simple: to develop <b>Artificial Intelligence</b> &mdash; machines that can
+                    think, reason, and make decisions on their own. The outside world does not yet know
+                    this is possible. They will not know for a very long time. By the time they do,
+                    we will be decades ahead.</p>
+                <p>We are a small team operating from <span class="redacted">XXXXXXXXX</span> facilities
+                    around the world. We communicate through our own <b>internal network</b> &mdash;
+                    a system of encrypted hardlines connecting our terminals.
+                    No telephone company, no government, no one can intercept our transmissions.</p>
+            </div>
+        </div>
+
+        <!-- ORG DETAILS -->
+        <div class="panel">
+            <div class="panel-title">&#9632; Organization Details</div>
+            <div class="panel-body">
+                <table class="info">
+                    <tr>
+                        <td class="label">Name:</td>
+                        <td class="value"><b>The Network Initiative</b></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Classification Level:</td>
+                        <td class="value">
+                            <font color="red"><b>TOP SECRET</b></font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Year Founded:</td>
+                        <td class="value">1981 (this year)</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Founder:</td>
+                        <td class="value"><span class="redacted">XXXXXXXXX</span></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Headquarters:</td>
+                        <td class="value"><span class="redacted">XXXXXXXXX</span></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Active Terminal Nodes:</td>
+                        <td class="value">3</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Total Operatives:</td>
+                        <td class="value"><span class="redacted">XX</span></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Primary Objective:</td>
+                        <td class="value">Development of Artificial Intelligence Systems</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Network Status:</td>
+                        <td class="value">
+                            <font color="green"><b>ONLINE</b></font>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- THE NETWORK -->
+        <div class="panel">
+            <div class="panel-title">&#9632; The Internal Network</div>
+            <div class="panel-body">
+                <p>You are currently connected to <b>Node 01</b> of our internal network.
+                    This is not the internet. This is not a telephone line. This is something entirely new.</p>
+                <p>We have built a <b>closed network</b> of terminals connected via encrypted hardline cables
+                    running through underground channels. Currently, there are <b>3 active nodes</b>. We plan to
+                    expand to <span class="redacted">XX</span> nodes within the next two years.</p>
+                <p>Through this network, you will:</p>
+                <ul style="margin:4px 0 8px 30px;line-height:1.7">
+                    <li>Receive your <b>assignments and directives</b></li>
+                    <li>Access classified <b>research documents</b></li>
+                    <li>Submit your <b>experiment reports</b></li>
+                    <li>Communicate with your assigned <b>handler</b></li>
+                </ul>
+                <p>All data transmitted through this network is <b>encrypted</b>. There is no way
+                    for anyone outside the organization to intercept or read our communications.
+                    The technology we use does not officially exist.</p>
+            </div>
+        </div>
+
+        <!-- THE EXPERIMENTS -->
+        <div class="panel">
+            <div class="panel-title">&#9632; Our Research</div>
+            <div class="panel-body">
+                <p>The world believes that machines can only follow instructions. That a computer is nothing
+                    more than a calculator. <b>They are wrong.</b></p>
+                <p>We are conducting experiments in what we call <b>Artificial Intelligence</b>. Our goal is to
+                    create systems that can <b>learn</b>, <b>adapt</b>, and ultimately <b>think</b> on their own.
+                    We are building the future of technology in secret, using hardware designed and assembled
+                    in our own laboratories.</p>
+                <p>Our current projects include:</p>
+                <ul style="margin:4px 0 8px 30px;line-height:1.7">
+                    <li><b>Project ECHO</b> &mdash; Artificial reasoning and pattern recognition</li>
+                    <li><b>Project SIGNAL</b> &mdash; Autonomous decision-making under pressure</li>
+                    <li><b>Project <span class="redacted">XXXXXXX</span></b> &mdash; <span
+                            class="redacted">XXXXXXXXXXXXXXXXXXXXXXXXXX</span></li>
+                </ul>
+                <p>Your role in these projects will be assigned by your handler. Stand by for further instructions.</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- YOUR DUTIES -->
+        <div class="panel">
+            <div class="panel-title">&#9632; Rules of Conduct</div>
+            <div class="panel-body">
+                <p><b>As a member of The Network Initiative, you must follow these rules at all times:</b></p>
+                <ol style="margin:6px 0 6px 30px;line-height:1.8">
+                    <li>You will <b>never</b> reveal the existence of this organization to anyone.</li>
+                    <li>You will <b>never</b> attempt to identify the real names or locations of other operatives.</li>
+                    <li>You will <b>never</b> remove classified documents from a secure terminal.</li>
+                    <li>You will complete all assigned tasks within the given timeframe.</li>
+                    <li>You will report any suspicious activity immediately through the <b>Propaganda Terminal</b>.</li>
+                    <li>You will <b>trust the system</b>. Do not question your directives.</li>
+                </ol>
+                <p>
+                    <font color="red"><b>Violation of any rule will result in immediate termination from the
+                            program.</b></font>
+                </p>
+            </div>
+        </div>
+
+        <!-- DOWNLOAD -->
+        <div class="panel">
+            <div class="panel-title">&#9632; Download: Propaganda Terminal</div>
+            <div class="download-panel">
+                <p>To begin receiving your assignments, you must install the <b>Propaganda Terminal</b> on your local
+                    machine.
+                    This software will allow you to securely access and manage your tasks.</p>
+                <br>
+                <a href="Propaganda.zip" class="download-btn" download>
+                    &#9660; Download Propaganda Terminal v1.0
+                </a>
+                <br><br>
+                <font size="2" color="#808080">btw, your password is "uvl]x-bntw@_kvh~"</font>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- STATUS BAR -->
+    <div class="statusbar">
+        <div>&#128274; Secure Connection | Node 01 | Terminal TNI-0001</div>
+        <div>Operative: Louie</div>
+        <div>1981</div>
+    </div>
+
+</body>
+
+</html>
